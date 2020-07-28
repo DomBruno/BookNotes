@@ -33,6 +33,9 @@ public class Note {
     private String noteContents;
 
     @Column(nullable = false)
+    private boolean visible;
+
+    @Column(nullable = false)
     private Date noteDate;
 
     private String notePagesRead;
@@ -48,11 +51,12 @@ public Note() {
 
 }
 
-public Note(String noteContents, String notePagesRead, Date noteDate, Book book)
+public Note(String noteContents, String notePagesRead, Date noteDate, Boolean visible, Book book)
 {
     this.noteContents = noteContents;
     this.notePagesRead = notePagesRead;
     this.noteDate = noteDate;
+    this.visible = visible;
     this.book = book;
 }
 
@@ -94,6 +98,16 @@ public Date getNoteDate()
 public void setNoteDate(Date noteDate)
 {
     this.noteDate = noteDate;
+}
+
+public boolean getVisible()
+{
+    return visible;
+}
+
+public void setVisible(boolean visible)
+{
+    this.visible = visible;
 }
 
 public Book getBook()
